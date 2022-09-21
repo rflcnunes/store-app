@@ -16,7 +16,10 @@ class ProductRepository implements ProductRepositoryInterface
 
     public function all()
     {
-        return $this->product->orderBy('created_at', 'desc')->get();
+        return $this->product
+            ->orderBy('created_at', 'desc')
+            ->with('images', 'categories', 'users')
+            ->get();
     }
 
     public function createProduct(array $data)
