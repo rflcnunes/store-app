@@ -5,8 +5,10 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\Interfaces\ProductRepositoryInterface;
 use App\Repositories\Interfaces\CategoryRepositoryInterface;
+use App\Repositories\Interfaces\ImageRepositoryInterface;
 use App\Repositories\ProductRepository;
 use App\Repositories\CategoryRepository;
+use App\Repositories\ImageRepository;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -25,6 +27,11 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             CategoryRepositoryInterface::class,
             CategoryRepository::class
+        );
+
+        $this->app->bind(
+            ImageRepositoryInterface::class,
+            ImageRepository::class
         );
     }
 
