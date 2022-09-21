@@ -13,4 +13,19 @@ class Product extends Model
         'name',
         'description',
     ];
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, 'category_product');
+    }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'product_user');
+    }
+
+    public function images()
+    {
+        return $this->belongsToMany(Image::class, 'image_product');
+    }
 }
