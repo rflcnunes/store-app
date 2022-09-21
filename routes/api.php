@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,4 +29,9 @@ Route::group(['prefix' => 'products'], function () {
 Route::group(['prefix' => 'categories'], function () {
     Route::get('/', [CategoryController::class, 'index']);
     Route::post('/', [CategoryController::class, 'store']);
+});
+
+Route::group(['prefix' => 'images'], function () {
+    Route::get('/', [ImageController::class, 'index']);
+    Route::post('/', [ImageController::class, 'store']);
 });
